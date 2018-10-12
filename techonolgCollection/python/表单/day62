@@ -1,0 +1,27 @@
+Django的Form验证
+    - 控诉：
+        a. 用户提交数据的验证
+            1、创建模版                        class LoginForm(forms.Form):...
+            2、将请求交给模版，创建一个对象    obj = LoginForm(request.POST)
+            3、进行验证                        obj.is_valid()
+            4、获取正确信息                    obj.clean()           
+            5、获取错误信息                    obj.errors
+        b. 错误信息提示
+            Form提交，刷新页面的特性，模版对象内部值丰富，再显示时，值和错误信息都有
+            
+        c. 保留上一次提交的数据
+            1、自动生成html标签
+            2、保留上一次提交的数据
+        
+注：
+    Form使用 a,b,c
+    ajax使用 a，错误信息处理： as_json()    as_data()
+            
+            
+问题：
+    1、有没有其他的限制，可不可以自定制
+    2、生成各种标签
+    3、显示默认值
+    
+    http://www.cnblogs.com/wupeiqi/articles/6144178.html
+    

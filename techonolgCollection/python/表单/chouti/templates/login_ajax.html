@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Form提交数据</h1>
+<form action="" id="f1">
+    <p><input type="text" id="u" name="user" placeholder="用户名"></p>
+
+    <p><input id="e" type="text" name="email" placeholder="邮箱"></p>
+
+
+
+
+
+    <p><input type="text" id="p" name="pwd" placeholder="密码"></p>
+    <input type="button" id="ajax_submit" value="Ajax提交">
+
+
+
+
+
+</form>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script>
+$(function () {
+    $('#ajax_submit').click(function () {
+        $.ajax(
+            {
+                url:'/login_ajax.html',
+                data:$('#f1').serialize(),
+                type:'POST',
+                success:function (arg) {
+                    $('.error-msg').remove();
+                    var v1=JSON.parse(arg);
+                    console.log(v1);
+                    console.log(v1.error)
+                    console.log(typeof v1.error)
+                    var v2=JSON.parse(v1.error)
+                    /*if(!v1.status){
+                        var error_obj=v1.error;
+                        $.each(error_obj,function (k,v) {
+                            var tag=document.createElement('span');
+                            tag.className='error-msg';
+                            tag.innerHTML=v[0].message;
+                            $("input[name='"+k+"']").after(tag);
+
+                        })
+
+
+
+                    }else {
+
+                        location.href='/index.html'
+
+                    }*/
+
+                }
+
+
+
+
+
+            }
+
+
+        )
+
+
+    })
+
+
+})
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="auth_group"/>
+    <table id="4" parent="2" name="auth_group_permissions"/>
+    <table id="5" parent="2" name="auth_permission"/>
+    <table id="6" parent="2" name="auth_user"/>
+    <table id="7" parent="2" name="auth_user_groups"/>
+    <table id="8" parent="2" name="auth_user_user_permissions"/>
+    <table id="9" parent="2" name="crm_branch"/>
+    <table id="10" parent="2" name="crm_classlist"/>
+    <table id="11" parent="2" name="crm_classlist_teachers"/>
+    <table id="12" parent="2" name="crm_contracttemplate"/>
+    <table id="13" parent="2" name="crm_course"/>
+    <table id="14" parent="2" name="crm_courserecord"/>
+    <table id="15" parent="2" name="crm_customerfollowup"/>
+    <table id="16" parent="2" name="crm_customerinfo"/>
+    <table id="17" parent="2" name="crm_customerinfo_consult_courses"/>
+    <table id="18" parent="2" name="crm_menus"/>
+    <table id="19" parent="2" name="crm_paymentrecord"/>
+    <table id="20" parent="2" name="crm_role"/>
+    <table id="21" parent="2" name="crm_role_menus"/>
+    <table id="22" parent="2" name="crm_student"/>
+    <table id="23" parent="2" name="crm_student_class_grades"/>
+    <table id="24" parent="2" name="crm_studentenrollment"/>
+    <table id="25" parent="2" name="crm_studyrecord"/>
+    <table id="26" parent="2" name="crm_userprofile"/>
+    <table id="27" parent="2" name="crm_userprofile_role"/>
+    <table id="28" parent="2" name="django_admin_log"/>
+    <table id="29" parent="2" name="django_content_type"/>
+    <table id="30" parent="2" name="django_migrations"/>
+    <table id="31" parent="2" name="django_session"/>
+    <table id="32" parent="2" name="sqlite_sequence"/>
+    <table id="33" parent="2" name="student_test"/>
+    <column id="34" parent="3" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="3" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(80)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="36" parent="3" name="sqlite_autoindex_auth_group_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="3">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="4" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="4" name="group_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="4" name="permission_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="41" parent="4" name="auth_group_permissions_group_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="4">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="43" parent="4" name="#FAKE_auth_group_permissions_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="44" parent="4" name="#FAKE_auth_group_permissions_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>permission_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="45" parent="5" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="5" name="content_type_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="5" name="codename">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="5" name="name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="49" parent="5" name="auth_permission_content_type_id_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="50" parent="5">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="51" parent="5" name="#FAKE_auth_permission_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>content_type_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="52" parent="6" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="6" name="password">
+      <Position>1</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="6" name="last_login">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+    </column>
+    <column id="55" parent="6" name="is_superuser">
+      <Position>3</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="6" name="first_name">
+      <Position>4</Position>
+      <DataType>VARCHAR(30)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="6" name="last_name">
+      <Position>5</Position>
+      <DataType>VARCHAR(30)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="6" name="email">
+      <Position>6</Position>
+      <DataType>VARCHAR(254)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="6" name="is_staff">
+      <Position>7</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="6" name="is_active">
+      <Position>8</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="6" name="date_joined">
+      <Position>9</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="6" name="username">
+      <Position>10</Position>
+      <DataType>VARCHAR(150)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="63" parent="6" name="sqlite_autoindex_auth_user_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="64" parent="6">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="7" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="7" name="user_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="7" name="group_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="68" parent="7" name="auth_user_groups_user_id_94350c0c_uniq">
+      <ColNames>user_id
+group_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="69" parent="7">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="70" parent="7" name="#FAKE_auth_user_groups_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="71" parent="7" name="#FAKE_auth_user_groups_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="72" parent="8" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="8" name="user_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="8" name="permission_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="75" parent="8" name="auth_user_user_permissions_user_id_14a6b632_uniq">
+      <ColNames>user_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="76" parent="8">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="77" parent="8" name="#FAKE_auth_user_user_permissions_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="78" parent="8" name="#FAKE_auth_user_user_permissions_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>permission_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="79" parent="9" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="9" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="9" name="addr">
+      <Position>2</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+    </column>
+    <index id="82" parent="9" name="sqlite_autoindex_crm_branch_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="83" parent="9">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="84" parent="10" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="10" name="class_type">
+      <Position>1</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="10" name="semester">
+      <Position>2</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="10" name="start_date">
+      <Position>3</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="10" name="graduate_date">
+      <Position>4</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+    </column>
+    <column id="89" parent="10" name="branch_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="10" name="course_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="10" name="contract_template_id">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <index id="92" parent="10" name="crm_classlist_branch_id_499dd7c6_uniq">
+      <ColNames>branch_id
+class_type
+course_id
+semester</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="93" parent="10">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="94" parent="10" name="#FAKE_crm_classlist_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>branch_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_branch</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="95" parent="10" name="#FAKE_crm_classlist_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_course</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="96" parent="10" name="#FAKE_crm_classlist_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>contract_template_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_contracttemplate</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="97" parent="11" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="11" name="classlist_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="11" name="userprofile_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="100" parent="11" name="crm_classlist_teachers_classlist_id_fdeb6cf0_uniq">
+      <ColNames>classlist_id
+userprofile_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="101" parent="11">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="102" parent="11" name="#FAKE_crm_classlist_teachers_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>classlist_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_classlist</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="103" parent="11" name="#FAKE_crm_classlist_teachers_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userprofile_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="104" parent="12" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="12" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="106" parent="12" name="content">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="12" name="date">
+      <Position>3</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="108" parent="12">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="109" parent="13" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="13" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="13" name="price">
+      <Position>2</Position>
+      <DataType>SMALLINT UNSIGNED(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="13" name="period">
+      <Position>3</Position>
+      <DataType>SMALLINT UNSIGNED(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="13" name="outline">
+      <Position>4</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="114" parent="13" name="sqlite_autoindex_crm_course_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="115" parent="13">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="116" parent="14" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="117" parent="14" name="day_num">
+      <Position>1</Position>
+      <DataType>SMALLINT UNSIGNED(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="118" parent="14" name="title">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="14" name="content">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="14" name="has_homework">
+      <Position>4</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="121" parent="14" name="homework">
+      <Position>5</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="122" parent="14" name="date">
+      <Position>6</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="123" parent="14" name="class_grade_id">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="124" parent="14" name="teacher_id">
+      <Position>8</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="125" parent="14" name="crm_courserecord_class_grade_id_85759bc6_uniq">
+      <ColNames>class_grade_id
+day_num</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="126" parent="14">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="127" parent="14" name="#FAKE_crm_courserecord_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>class_grade_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_classlist</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="128" parent="14" name="#FAKE_crm_courserecord_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>teacher_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="129" parent="15" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="15" name="content">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="131" parent="15" name="status">
+      <Position>2</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="132" parent="15" name="date">
+      <Position>3</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="133" parent="15" name="customer_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="134" parent="15" name="user_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="135" parent="15">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="136" parent="15" name="#FAKE_crm_customerfollowup_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_customerinfo</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="137" parent="15" name="#FAKE_crm_customerfollowup_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="138" parent="16" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="139" parent="16" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="140" parent="16" name="contact_type">
+      <Position>2</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="141" parent="16" name="contact">
+      <Position>3</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="142" parent="16" name="source">
+      <Position>4</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="143" parent="16" name="consult_content">
+      <Position>5</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="144" parent="16" name="status">
+      <Position>6</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="145" parent="16" name="date">
+      <Position>7</Position>
+      <DataType>DATE(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="146" parent="16" name="consultant_id">
+      <Position>8</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="147" parent="16" name="emergency_contact">
+      <Position>9</Position>
+      <DataType>INTEGER UNSIGNED(0,-1)|4</DataType>
+    </column>
+    <column id="148" parent="16" name="id_num">
+      <Position>10</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+    </column>
+    <column id="149" parent="16" name="sex">
+      <Position>11</Position>
+      <DataType>SMALLINT UNSIGNED(0,-1)|4</DataType>
+    </column>
+    <column id="150" parent="16" name="referral_from_id">
+      <Position>12</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <index id="151" parent="16" name="sqlite_autoindex_crm_customerinfo_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>contact</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="152" parent="16">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="153" parent="16" name="#FAKE_crm_customerinfo_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>consultant_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="154" parent="16" name="#FAKE_crm_customerinfo_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>referral_from_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_customerinfo</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="155" parent="17" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="156" parent="17" name="customerinfo_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="157" parent="17" name="course_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="158" parent="17">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="159" parent="17" name="#FAKE_crm_customerinfo_consult_courses_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customerinfo_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_customerinfo</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="160" parent="17" name="#FAKE_crm_customerinfo_consult_courses_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_course</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="161" parent="18" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="162" parent="18" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="163" parent="18" name="url_type">
+      <Position>2</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="164" parent="18" name="url_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="165" parent="18" name="crm_menus_name_b9ee9fd9_uniq">
+      <ColNames>name
+url_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="166" parent="18">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="167" parent="19" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="168" parent="19" name="payment_type">
+      <Position>1</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="169" parent="19" name="amount">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="170" parent="19" name="date">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="171" parent="19" name="consultant_id">
+      <Position>4</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="172" parent="19" name="enrollment_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="173" parent="19">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="174" parent="19" name="#FAKE_crm_paymentrecord_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>consultant_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="175" parent="19" name="#FAKE_crm_paymentrecord_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>enrollment_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_studentenrollment</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="176" parent="20" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="177" parent="20" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="178" parent="20" name="sqlite_autoindex_crm_role_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="179" parent="20">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="180" parent="21" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="181" parent="21" name="role_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="182" parent="21" name="menus_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="183" parent="21" name="crm_role_menus_role_id_638289e1_uniq">
+      <ColNames>role_id
+menus_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="184" parent="21">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="185" parent="21" name="#FAKE_crm_role_menus_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>role_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_role</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="186" parent="21" name="#FAKE_crm_role_menus_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>menus_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_menus</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="187" parent="22" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="188" parent="22" name="customer_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="189" parent="22">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="190" parent="22" name="#FAKE_crm_student_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_customerinfo</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="191" parent="23" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="192" parent="23" name="student_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="193" parent="23" name="classlist_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="194" parent="23" name="crm_student_class_grades_student_id_164cb3f5_uniq">
+      <ColNames>student_id
+classlist_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="195" parent="23">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="196" parent="23" name="#FAKE_crm_student_class_grades_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>student_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_student</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="197" parent="23" name="#FAKE_crm_student_class_grades_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>classlist_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_classlist</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="198" parent="24" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="199" parent="24" name="contract_agreed">
+      <Position>1</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="200" parent="24" name="contract_signed_date">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+    </column>
+    <column id="201" parent="24" name="contract_approved">
+      <Position>3</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="202" parent="24" name="contract_approved_date">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+    </column>
+    <column id="203" parent="24" name="class_grade_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="204" parent="24" name="consultant_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="205" parent="24" name="customer_id">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="206" parent="24" name="crm_studentenrollment_customer_id_ea05a631_uniq">
+      <ColNames>customer_id
+class_grade_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="207" parent="24">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="208" parent="24" name="#FAKE_crm_studentenrollment_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>class_grade_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_classlist</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="209" parent="24" name="#FAKE_crm_studentenrollment_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>consultant_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="210" parent="24" name="#FAKE_crm_studentenrollment_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_customerinfo</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="211" parent="25" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="212" parent="25" name="score">
+      <Position>1</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="213" parent="25" name="show_status">
+      <Position>2</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="214" parent="25" name="note">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="215" parent="25" name="date">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="216" parent="25" name="course_record_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="217" parent="25" name="student_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="218" parent="25">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="219" parent="25" name="#FAKE_crm_studyrecord_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>course_record_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_courserecord</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="220" parent="25" name="#FAKE_crm_studyrecord_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>student_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_student</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="221" parent="26" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="222" parent="26" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="223" parent="26" name="user_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="224" parent="26">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="225" parent="26" name="#FAKE_crm_userprofile_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="226" parent="27" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="227" parent="27" name="userprofile_id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="228" parent="27" name="role_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="229" parent="27">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="230" parent="27" name="#FAKE_crm_userprofile_role_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userprofile_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="231" parent="27" name="#FAKE_crm_userprofile_role_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>role_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>crm_role</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="232" parent="28" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="233" parent="28" name="object_id">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="234" parent="28" name="object_repr">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="235" parent="28" name="action_flag">
+      <Position>3</Position>
+      <DataType>SMALLINT UNSIGNED(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="236" parent="28" name="change_message">
+      <Position>4</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="237" parent="28" name="content_type_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="238" parent="28" name="user_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="239" parent="28" name="action_time">
+      <Position>7</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="240" parent="28">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="241" parent="28" name="#FAKE_django_admin_log_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>content_type_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="242" parent="28" name="#FAKE_django_admin_log_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="243" parent="29" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="244" parent="29" name="app_label">
+      <Position>1</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="245" parent="29" name="model">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="246" parent="29">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="247" parent="30" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="248" parent="30" name="app">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="249" parent="30" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="250" parent="30" name="applied">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="251" parent="30">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="252" parent="31" name="session_key">
+      <DataType>VARCHAR(40)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="253" parent="31" name="session_data">
+      <Position>1</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="254" parent="31" name="expire_date">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="255" parent="31">
+      <ColNames>session_key</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="256" parent="32" name="name">
+      <DataType>(0,-1)|12</DataType>
+    </column>
+    <column id="257" parent="32" name="seq">
+      <Position>1</Position>
+      <DataType>(0,-1)|12</DataType>
+    </column>
+    <column id="258" parent="33" name="id">
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="259" parent="33" name="name">
+      <Position>1</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="260" parent="33">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

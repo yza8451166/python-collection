@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .zan{
+        {#font-size: 15px;#}
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+        position: relative;
+        width: 100px;
+        height: 40px;
+
+
+
+
+    }
+
+
+</style>
+
+
+<body>
+<div class="zan" id="zan">赞</div>
+
+
+
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+
+<script>
+    $('#zan').click(function () {
+        var zn=document.createElement('span');
+        zn.innerHTML='+1';
+        {#$(zen).css('position','absolute')#}
+        {#$(zen).css('color','green')#}
+        $('#zan').append(zn)
+        var fz=10;
+        var tp=5;
+        var lf=5;
+        var op=1;
+        zn.style.color='green';
+        zn.style.fontSize=fz+'px'
+        zn.style.top=tp+'px'
+        zn.style.left=lf+'px'
+        zn.style.opacity=op;
+
+
+        var interval=setInterval(
+
+            function () {
+
+                fz+=5;
+                tp+=5;
+                lf+=5;
+                op-=0.2;
+            zn.style.fontSize=fz+'px'
+            zn.style.top=tp+'px'
+            zn.style.left=lf+'px'
+            zn.style.opacity=op;
+            if(op<=0){
+                clearInterval(interval);
+                zn.remove();
+
+
+
+
+            }
+
+
+            },50
+
+
+
+        );
+
+
+
+
+    })
+
+
+</script>
+
+</html>

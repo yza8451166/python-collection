@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .comment-box{
+        margin-left: 20px;
+
+
+
+    }
+
+
+</style>
+<body>
+<div class="item">
+    <a news_id="18" style="cursor: pointer" class="com">评论</a>
+</div>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+
+
+<script>
+$(function () {
+    bindCommentEvent();
+})
+
+    function bindCommentEvent() {
+    $('.com').click(function () {
+        var news_id=$('.com').attr('news_id');
+        var ths=$(this);
+        $.ajax(
+            {
+                url:'/comment',
+                data:{news_id:news_id},
+                dataType:'html',
+                type:'GET',
+                success:function (arg) {
+                    //create_tree(arg,ths)
+                    console.log(arg);
+                    ths.after(arg);
+                }
+            }
+        )
+    })
+    }
+
+    function digui(children_list) {
+        console.log(1)
+        var html='';
+        $.each(children_list,function (ck,cv) {
+            var b='<div class="comment-box"><span>';
+            b+=cv.content+'</span>';
+            b+=digui(cv.children)
+            b+='</div>';
+            html +=b;
+
+
+        });
+        return html;
+
+    }
+
+    function create_tree(data ,$this) {
+        var html='<div class="comment-list">';
+        $.each(data,function (k,v) {
+            var a='<div class="comment-box"><span>';
+            a+=v.content+"</span>";
+            a+=digui(v.children);
+            a+='</div>';
+            html+=a;
+
+
+        });
+        html+='</div>';
+        $this.after(html);
+
+    }
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
